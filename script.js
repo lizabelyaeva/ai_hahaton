@@ -136,6 +136,20 @@ class PixelQuest {
                 tile.appendChild(decorationEl);
             }
             
+            // Добавление дня недели
+            const weekdayNames = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
+            const weekdayName = document.createElement('div');
+            weekdayName.textContent = weekdayNames[date.getDay() === 0 ? 6 : date.getDay() - 1]; // Преобразуем воскресенье (0) в 6
+            weekdayName.style.position = 'absolute';
+            weekdayName.style.top = '2px';
+            weekdayName.style.left = '2px';
+            weekdayName.style.fontSize = 'clamp(6px, 1.5vw, 12px)';
+            weekdayName.style.color = 'white';
+            weekdayName.style.textShadow = '1px 1px 0 black';
+            weekdayName.style.fontWeight = 'bold';
+            weekdayName.className = 'weekday-label';
+            tile.appendChild(weekdayName);
+            
             // Добавление номера дня
             const dayNumber = document.createElement('div');
             dayNumber.textContent = date.getDate();
