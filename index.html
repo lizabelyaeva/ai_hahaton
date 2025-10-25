@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Quest - Трекер Привычек</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app">
+        <!-- Заголовок -->
+        <header class="header">
+            <h1 class="title">🎮 Pixel Quest</h1>
+            <div class="player-info">
+                <div class="avatar-selector">
+                    <span class="avatar-label">Аватар:</span>
+                    <div class="avatar-options">
+                        <button class="avatar-btn active" data-avatar="1">🧙‍♂️</button>
+                        <button class="avatar-btn" data-avatar="2">🛡️</button>
+                        <button class="avatar-btn" data-avatar="3">🏹</button>
+                        <button class="avatar-btn" data-avatar="4">⚔️</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Основная карта -->
+        <main class="map-container">
+            <div class="map-wrapper">
+                <div class="map" id="pixelMap">
+                    <!-- Тайлы дней будут генерироваться динамически -->
+                </div>
+                <div class="map-controls">
+                    <button class="nav-btn" id="prevWeek">← Неделя</button>
+                    <span class="current-date" id="currentDate"></span>
+                    <button class="nav-btn" id="nextWeek">Неделя →</button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Панель управления -->
+        <aside class="control-panel">
+            <div class="panel-section">
+                <h3>📅 Выбранный день</h3>
+                <div class="date-info" id="todayDate"></div>
+                <div class="date-hint" style="font-size: 8px; color: #666; margin-top: 4px; text-align: center;">
+                    Кликните на день на карте для выбора
+                </div>
+            </div>
+
+            <div class="panel-section">
+                <h3>😊 Настроение</h3>
+                <div class="mood-selector">
+                    <button class="mood-btn" data-mood="happy">😊</button>
+                    <button class="mood-btn" data-mood="neutral">😐</button>
+                    <button class="mood-btn" data-mood="sad">😞</button>
+                </div>
+            </div>
+
+            <div class="panel-section">
+                <h3>✅ Задачи</h3>
+                <div class="task-input">
+                    <input type="text" id="taskInput" placeholder="Добавить задачу..." maxlength="50">
+                    <button id="addTaskBtn">+</button>
+                </div>
+                <div class="tasks-list" id="tasksList">
+                    <!-- Задачи будут добавляться динамически -->
+                </div>
+            </div>
+
+            <div class="panel-section">
+                <h3>📊 Статистика</h3>
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Выполнено:</span>
+                        <span class="stat-value" id="completedTasks">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Всего:</span>
+                        <span class="stat-value" id="totalTasks">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Продуктивность:</span>
+                        <span class="stat-value" id="productivity">0%</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Модальное окно для просмотра дня -->
+        <div class="modal" id="dayModal">
+            <div class="modal-content">
+                <span class="close" id="closeModal">&times;</span>
+                <h2 id="modalDate"></h2>
+                <div class="modal-mood" id="modalMood"></div>
+                <div class="modal-tasks" id="modalTasks"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

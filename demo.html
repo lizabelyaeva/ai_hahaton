@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Quest - Демо</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        .demo-banner {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            text-shadow: 2px 2px 0 #000;
+            animation: rainbow 3s ease-in-out infinite;
+        }
+        
+        @keyframes rainbow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .demo-instructions {
+            background: #1a1a2e;
+            color: #4a9eff;
+            padding: 20px;
+            border: 2px solid #0f3460;
+            margin: 10px;
+            font-size: 10px;
+            line-height: 1.6;
+        }
+        
+        .demo-instructions h3 {
+            color: #4a9eff;
+            margin-bottom: 10px;
+        }
+        
+        .demo-instructions ul {
+            margin-left: 20px;
+        }
+        
+        .demo-instructions li {
+            margin-bottom: 5px;
+        }
+        
+        .new-feature {
+            background: #2d5016;
+            border: 1px solid #4caf50;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        
+        .new-feature h4 {
+            color: #4caf50;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-banner">
+        🎮 ДЕМО РЕЖИМ - Pixel Quest (ОБНОВЛЕНО!) 🎮
+    </div>
+    
+    <div class="demo-instructions">
+        <div class="new-feature">
+            <h4>🆕 НОВОЕ: Выбор любого дня!</h4>
+            <p>Теперь вы можете кликать на любой день на карте и работать с задачами/настроением для этого дня!</p>
+        </div>
+        
+        <h3>🚀 Как протестировать приложение:</h3>
+        <ul>
+            <li><strong>1. Выберите день</strong> - кликните на любой тайл на карте (он подсветится зеленым)</li>
+            <li><strong>2. Выберите аватар</strong> - кликните на одного из героев в правом верхнем углу</li>
+            <li><strong>3. Отметьте настроение</strong> - выберите 😊, 😐 или 😞 в панели справа</li>
+            <li><strong>4. Добавьте задачи</strong> - введите текст и нажмите "+" или Enter</li>
+            <li><strong>5. Отметьте выполненные</strong> - поставьте галочки у выполненных задач</li>
+            <li><strong>6. Переключайтесь между днями</strong> - кликайте на разные дни и работайте с ними</li>
+            <li><strong>7. Навигация</strong> - используйте кнопки "← Неделя" и "Неделя →" для просмотра разных периодов</li>
+        </ul>
+        
+        <h3>🎨 Типы тайлов:</h3>
+        <ul>
+            <li><strong>Отличный день</strong> (все задачи + хорошее настроение) = Ярко-зеленый с цветочками ✨</li>
+            <li><strong>Хороший день</strong> (часть задач + хорошее настроение) = Светло-зеленый с травой</li>
+            <li><strong>Обычный день</strong> (средняя продуктивность) = Желтый тайл</li>
+            <li><strong>Плохой день</strong> (низкая продуктивность) = Серый с камнями</li>
+            <li><strong>Пустой день</strong> (нет данных) = Темно-серый</li>
+        </ul>
+        
+        <h3>🎯 Визуальные подсказки:</h3>
+        <ul>
+            <li><strong>Синяя рамка</strong> = Сегодняшний день</li>
+            <li><strong>Зеленая рамка</strong> = Выбранный день</li>
+            <li><strong>Оранжевая рамка</strong> = Сегодняшний день + выбранный</li>
+        </ul>
+        
+        <h3>💡 Совет:</h3>
+        <p>Попробуйте создать "идеальный день" - выполните все задачи и выберите хорошее настроение. Ваш тайл расцветет и получит специальные декорации! 🌸💰🦋</p>
+        
+        <h3>🔧 Исправленные проблемы:</h3>
+        <ul>
+            <li>✅ Теперь можно отмечать задачи как выполненные</li>
+            <li>✅ Можно выбирать любой день для работы с задачами</li>
+            <li>✅ Панель управления синхронизируется с выбранным днем</li>
+            <li>✅ Статистика обновляется для выбранного дня</li>
+        </ul>
+    </div>
+
+    <div class="app">
+        <!-- Заголовок -->
+        <header class="header">
+            <h1 class="title">🎮 Pixel Quest</h1>
+            <div class="player-info">
+                <div class="avatar-selector">
+                    <span class="avatar-label">Аватар:</span>
+                    <div class="avatar-options">
+                        <button class="avatar-btn active" data-avatar="1">🧙‍♂️</button>
+                        <button class="avatar-btn" data-avatar="2">🛡️</button>
+                        <button class="avatar-btn" data-avatar="3">🏹</button>
+                        <button class="avatar-btn" data-avatar="4">⚔️</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Основная карта -->
+        <main class="map-container">
+            <div class="map-wrapper">
+                <div class="map" id="pixelMap">
+                    <!-- Тайлы дней будут генерироваться динамически -->
+                </div>
+                <div class="map-controls">
+                    <button class="nav-btn" id="prevWeek">← Неделя</button>
+                    <span class="current-date" id="currentDate"></span>
+                    <button class="nav-btn" id="nextWeek">Неделя →</button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Панель управления -->
+        <aside class="control-panel">
+            <div class="panel-section">
+                <h3>📅 Выбранный день</h3>
+                <div class="date-info" id="todayDate"></div>
+                <div class="date-hint" style="font-size: 8px; color: #666; margin-top: 4px; text-align: center;">
+                    Кликните на день на карте для выбора
+                </div>
+            </div>
+
+            <div class="panel-section">
+                <h3>😊 Настроение</h3>
+                <div class="mood-selector">
+                    <button class="mood-btn" data-mood="happy">😊</button>
+                    <button class="mood-btn" data-mood="neutral">😐</button>
+                    <button class="mood-btn" data-mood="sad">😞</button>
+                </div>
+            </div>
+
+            <div class="panel-section">
+                <h3>✅ Задачи</h3>
+                <div class="task-input">
+                    <input type="text" id="taskInput" placeholder="Добавить задачу..." maxlength="50">
+                    <button id="addTaskBtn">+</button>
+                </div>
+                <div class="tasks-list" id="tasksList">
+                    <!-- Задачи будут добавляться динамически -->
+                </div>
+            </div>
+
+            <div class="panel-section">
+                <h3>📊 Статистика</h3>
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Выполнено:</span>
+                        <span class="stat-value" id="completedTasks">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Всего:</span>
+                        <span class="stat-value" id="totalTasks">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Продуктивность:</span>
+                        <span class="stat-value" id="productivity">0%</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Модальное окно для просмотра дня -->
+        <div class="modal" id="dayModal">
+            <div class="modal-content">
+                <span class="close" id="closeModal">&times;</span>
+                <h2 id="modalDate"></h2>
+                <div class="modal-mood" id="modalMood"></div>
+                <div class="modal-tasks" id="modalTasks"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
